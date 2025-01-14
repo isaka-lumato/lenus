@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lenus1/views/chat/chat_screen.dart';
+import 'package:lenus1/views/messaging/messaging_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme:
             ColorScheme.fromSwatch(accentColor: const Color(0xffEE5366)),
       ),
-      home: const ChatScreen(),
+      home: const MessagingView(),
     );
   }
 }
