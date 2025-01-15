@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lenus1/utils/app_color.dart';
 
 class AppTheme {
   final Color? appBarColor;
@@ -172,7 +173,7 @@ class DarkTheme extends AppTheme {
 
 class LightTheme extends AppTheme {
   LightTheme({
-    Color flashingCircleDarkColor = const Color(0xffEE5366),
+    Color flashingCircleDarkColor = AppColor.primaryColor,
     Color flashingCircleBrightColor = const Color(0xffFCD8DC),
     TextStyle incomingChatLinkTitleStyle = const TextStyle(color: Colors.black),
     TextStyle outgoingChatLinkTitleStyle = const TextStyle(color: Colors.black),
@@ -182,23 +183,23 @@ class LightTheme extends AppTheme {
     Color repliedTitleTextColor = Colors.black,
     Color swipeToReplyIconColor = Colors.black,
     double elevation = 2,
-    Color appBarColor = Colors.white,
-    Color backArrowColor = const Color(0xffEE5366),
-    Color backgroundColor = const Color(0xffeeeeee),
+    Color appBarColor = AppColor.primaryColor,
+    Color backArrowColor = Colors.white,
+    Color backgroundColor =  Colors.white,
     Color replyDialogColor = const Color(0xffFCD8DC),
     Color linkPreviewOutgoingChatColor = const Color(0xffFCD8DC),
     Color linkPreviewIncomingChatColor = const Color(0xFFEEEEEE),
     TextStyle linkPreviewIncomingTitleStyle = const TextStyle(),
     TextStyle linkPreviewOutgoingTitleStyle = const TextStyle(),
-    Color replyTitleColor = const Color(0xffEE5366),
+    Color replyTitleColor = const Color(0xFFC5CAE9),
     Color reactionPopupColor = Colors.white,
     Color replyPopupColor = Colors.white,
     Color replyPopupButtonColor = Colors.black,
     Color replyPopupTopBorderColor = const Color(0xFFBDBDBD),
     Color reactionPopupTitleColor = Colors.grey,
     Color textFieldBackgroundColor = Colors.white,
-    Color outgoingChatBubbleColor = const Color(0xffEE5366),
-    Color inComingChatBubbleColor = Colors.white,
+    Color outgoingChatBubbleColor = const Color(0xFFC5CAE9),
+    Color inComingChatBubbleColor = const Color(0xFFE8EAF6),
     Color inComingChatBubbleTextColor = Colors.black,
     Color repliedMessageColor = const Color(0xffff8aad),
     Color closeIconColor = Colors.black,

@@ -67,3 +67,25 @@ class MessagingModel extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+class MessageData {
+  final String avatar;
+  final String name;
+  final String message;
+  final String time;
+
+  MessageData(
+      {required this.avatar,
+      required this.name,
+      required this.message,
+      required this.time});
+
+  factory MessageData.fromJson(Map<String, dynamic> json) {
+    return MessageData(
+      avatar: json['avatar'],
+      name: json['name'],
+      message: json['message'],
+      time: json['time'],
+    );
+  }
+}

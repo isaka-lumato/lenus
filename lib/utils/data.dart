@@ -2,7 +2,7 @@ import 'package:chatview/chatview.dart';
 
 class Data {
   static const profileImage =
-      "https://raw.githubusercontent.com/SimformSolutionsPvtLtd/flutter_showcaseview/master/example/assets/simform.png";
+      "https://avatars.githubusercontent.com/u/106983293?v=4";
   static final messageList = [
     Message(
       id: '1',
@@ -109,6 +109,22 @@ class Data {
     Message(
       id: '12',
       message: "🤩🤩",
+      createdAt: DateTime.now(),
+      sentBy: '2',
+      status: MessageStatus.read,
+    ),
+    Message(
+      id: '13',
+      message:
+          "🤩🤩This is a very long message to test the character limit of the message field in our chat application. It should be exactly 220 characters long to ensure that our application can handle messages of this length without any issues.",
+      createdAt: DateTime.now(),
+      sentBy: '2',
+      status: MessageStatus.read,
+    ),
+    Message(
+      id: '13',
+      message:
+          "Hii ni ujumbe mrefu sana kwa Kiswahili ili kujaribu kikomo cha herufi za uwanja wa ujumbe katika programu yetu ya gumzo. Inapaswa kuwa na herufi 1000 ili kuhakikisha kuwa programu yetu inaweza kushughulikia ujumbe wa urefu huu bila matatizo yoyote. Tunajaribu kuona jinsi programu yetu inavyoweza kushughulikia maandishi marefu na kuhakikisha kuwa hakuna hitilafu zinazotokea wakati wa kuonyesha ujumbe huu. Hii ni muhimu sana kwa watumiaji wetu ambao wanataka kutuma ujumbe mrefu na wa kina. Tunataka kuhakikisha kuwa uzoefu wao wa kutumia programu yetu ni bora na bila matatizo yoyote. Kwa hivyo, tunajaribu ujumbe huu mrefu ili kuona jinsi programu yetu inavyoweza kushughulikia hali hii. Tunatumaini kuwa kila kitu kitakuwa sawa na kwamba programu yetu itafanya kazi kama inavyotarajiwa. Ikiwa kuna matatizo yoyote, tutayashughulikia na kuhakikisha kuwa programu yetu inaboreshwa zaidi. Asante kwa kutumia programu yetu na tunatarajia maoni yako ili tuweze kuendelea kuboresha huduma zetu. Hii ni sehemu ya kujitolea kwetu kwa ubora na kuhakikisha kuwa watumiaji wetu wanapata huduma bora zaidi. Tunathamini maoni yako na tunatarajia kusikia kutoka kwako hivi karibuni. Asante tena na tunakutakia siku njema. Endelea kufurahia kutumia programu yetu na usisite kuwasiliana nasi ikiwa una maswali yoyote au unahitaji msaada wowote. Tunapatikana kila wakati kusaidia na kuhakikisha kuwa unapata uzoefu bora zaidi. Asante na tunakutakia kila la heri.",
       createdAt: DateTime.now(),
       sentBy: '2',
       status: MessageStatus.read,

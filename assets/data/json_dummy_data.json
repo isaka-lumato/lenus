@@ -1,0 +1,122 @@
+[
+  {
+    "avatar": "assets/image/1.jpg",
+    "name": "Alice Smith",
+    "message": "Hello there! How have you been? It's been a while since we last talked.",
+    "time": "00:30"
+  },
+  {
+    "avatar": "assets/image/2.jpg",
+    "name": "Bob Johnson",
+    "message": "How are you? I was thinking about our last conversation and wanted to follow up.",
+    "time": "01:00"
+  },
+  {
+    "avatar": "assets/image/3.jpg",
+    "name": "Charlie Brown",
+    "message": "Good morning! I hope you have a fantastic day ahead.",
+    "time": "01:30"
+  },
+  {
+    "avatar": "assets/image/4.jpg",
+    "name": "David Wilson",
+    "message": "What's up? Just checking in to see how things are going with you.",
+    "time": "02:00"
+  },
+  {
+    "avatar": "assets/image/5.jpg",
+    "name": "Eve Davis",
+    "message": "See you soon. Looking forward to our meeting later today.",
+    "time": "02:30"
+  },
+  {
+    "avatar": "assets/image/6.jpg",
+    "name": "Frank Miller",
+    "message": "Take care. Don't forget to call me if you need anything.",
+    "time": "03:00"
+  },
+  {
+    "avatar": "assets/image/7.jpg",
+    "name": "Grace Lee",
+    "message": "Thank you! I really appreciate your help with the project.",
+    "time": "03:30"
+  },
+  {
+    "avatar": "assets/image/8.jpg",
+    "name": "Hank Moore",
+    "message": "Good night. Sleep well and talk to you tomorrow.",
+    "time": "04:00"
+  },
+  {
+    "avatar": "assets/image/1.jpg",
+    "name": "Ivy Taylor",
+    "message": "See you tomorrow. Let's catch up over coffee in the morning.",
+    "time": "04:30"
+  },
+  {
+    "avatar": "assets/image/2.jpg",
+    "name": "Jack Anderson",
+    "message": "Let's meet up. We have a lot to discuss about the upcoming event.",
+    "time": "05:00"
+  },
+  {
+    "avatar": "assets/image/3.jpg",
+    "name": "Karen Thomas",
+    "message": "Call me. I have some important updates to share with you.",
+    "time": "05:30"
+  },
+  {
+    "avatar": "assets/image/4.jpg",
+    "name": "Leo Jackson",
+    "message": "I'm on my way. Should be there in about 10 minutes.",
+    "time": "06:00"
+  },
+  {
+    "avatar": "assets/image/5.jpg",
+    "name": "Mia White",
+    "message": "Got it. I'll make sure to take care of it as soon as possible.",
+    "time": "06:30"
+  },
+  {
+    "avatar": "assets/image/6.jpg",
+    "name": "Noah Harris",
+    "message": "See you later. Let's catch up in the evening.",
+    "time": "07:00"
+  },
+  {
+    "avatar": "assets/image/7.jpg",
+    "name": "Olivia Martin",
+    "message": "Goodbye. It was great talking to you today.",
+    "time": "07:30"
+  },
+  {
+    "avatar": "assets/image/8.jpg",
+    "name": "Paul Thompson",
+    "message": "Nice to meet you. I hope we can collaborate on future projects.",
+    "time": "08:00"
+  },
+  {
+    "avatar": "assets/image/1.jpg",
+    "name": "Quinn Garcia",
+    "message": "How's it going? Just wanted to check in and see how you're doing.",
+    "time": "08:30"
+  },
+  {
+    "avatar": "assets/image/2.jpg",
+    "name": "Rachel Martinez",
+    "message": "I'm here. Let's get started with the meeting.",
+    "time": "09:00"
+  },
+  {
+    "avatar": "assets/image/3.jpg",
+    "name": "Sam Robinson",
+    "message": "Let's do it. I'm excited to start working on this new project.",
+    "time": "09:30"
+  },
+  {
+    "avatar": "assets/image/4.jpg",
+    "name": "Tina Clark",
+    "message": "Sounds good. I'll make sure to follow up with you later.",
+    "time": "10:00"
+  }
+]

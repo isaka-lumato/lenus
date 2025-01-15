@@ -1,5 +1,7 @@
 import 'package:chatview/chatview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lenus1/utils/app_color.dart';
 import 'package:lenus1/utils/data.dart';
 import 'package:lenus1/utils/theme.dart';
 
@@ -105,11 +107,11 @@ class _ChatScreenState extends State<ChatScreen> {
           backGroundColor: theme.appBarColor,
           profilePicture: Data.profileImage,
           backArrowColor: theme.backArrowColor,
-          chatTitle: "Chat view",
+          chatTitle: "Justin",
           chatTitleTextStyle: TextStyle(
             color: theme.appBarTitleTextStyle,
             fontWeight: FontWeight.bold,
-            fontSize: 18,
+            fontSize: 18.sp,
             letterSpacing: 0.25,
           ),
           userStatus: "online",
@@ -268,7 +270,7 @@ class _ChatScreenState extends State<ChatScreen> {
           verticalBarColor: theme.verticalBarColor,
           repliedMsgAutoScrollConfig: RepliedMsgAutoScrollConfig(
             enableHighlightRepliedMsg: true,
-            highlightColor: Colors.pinkAccent.shade100,
+            highlightColor: AppColor.primaryColor,
             highlightScale: 1.1,
           ),
           textStyle: const TextStyle(
