@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lenus1/controllers/Layout/navigation_bar_model.dart';
 import 'package:lenus1/views/layouts/layout.dart';
-import 'package:lenus1/views/messaging/messaging_view.dart';
 
 void main() {
   Get.put(NavigationBarTabsController());
