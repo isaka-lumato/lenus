@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lenus1/utils/colors.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class AppTheme {
   const AppTheme._();
@@ -48,6 +50,34 @@ class AppTheme {
       centerTitle: true,
     ),
   );
+
+  static TextStyle titleStyle =
+      const TextStyle(color: LightColor.titleTextColor, fontSize: 16);
+  static TextStyle subTitleStyle =
+      const TextStyle(color: LightColor.subTitleTextColor, fontSize: 12);
+
+  static TextStyle h1Style =
+      TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold);
+  static TextStyle h2Style = TextStyle(fontSize: 22.sp);
+  static TextStyle h3Style = TextStyle(fontSize: 20.sp);
+  static TextStyle h4Style = TextStyle(fontSize: 18.sp);
+  static TextStyle h5Style = TextStyle(fontSize: 16.sp);
+  static TextStyle h6Style = TextStyle(fontSize: 14.sp);
+
+  static List<BoxShadow> shadow = <BoxShadow>[
+    const BoxShadow(color: Color(0xfff8f8f8), blurRadius: 10, spreadRadius: 15),
+  ];
+
+  static EdgeInsets padding =
+      EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h);
+  static EdgeInsets hPadding = EdgeInsets.symmetric(
+    horizontal: 12.w,
+  );
+  static EdgeInsets vPadding = EdgeInsets.symmetric(
+    vertical: 10.h,
+  );
+
+  static Widget w10Gap = 10.w.widthBox;
 }
 
 class AppConstants {
@@ -62,6 +92,9 @@ class AppConstants {
   static double ph12 = 12.h;
   static double ph14 = 14.h;
   static double ph16 = 16.h;
+  static double ph20 = 20.h;
+  static double ph60 = 60.h;
+  static double ph100 = 100.h;
 
   //Use for width
   static double pw2 = 2.w;
@@ -79,7 +112,17 @@ class AppConstants {
   static double fs12 = 12.sp;
   static double fs14 = 14.sp;
   static double fs16 = 16.sp;
+  static double fs24 = 24.sp;
+
+  static double fullWidth() {
+    return ScreenUtil().screenWidth;
+  }
+
+  static double fullHeight() {
+    return ScreenUtil().screenHeight;
+  }
 
   //Use for App Text
-  static String appBarMainText = 'Chat with \nyour friends';
+  static String appBarMainText = 'Chat with \nyour friends today';
+  static String appBarSubText = 'Stay connected with your friends';
 }
