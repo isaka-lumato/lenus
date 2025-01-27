@@ -7,6 +7,8 @@ import 'package:lenus1/utils/app_theme.dart';
 import 'package:lenus1/views/messaging/components/chat_card.dart';
 
 class MessageList extends StatefulWidget {
+  const MessageList({super.key});
+
   @override
   _MessageListState createState() => _MessageListState();
 }
