@@ -9,7 +9,7 @@ import 'package:lenus1/utils/app_color.dart';
 import 'package:lenus1/utils/app_theme.dart';
 import 'package:lenus1/utils/colors.dart';
 import 'package:lenus1/utils/images.dart';
-import 'package:lenus1/views/auth_screen/signup.dart';
+import 'package:lenus1/views/Authentication/signin.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class GetStarted extends StatefulWidget {
@@ -26,7 +26,7 @@ class _GetStartedState extends State<GetStarted> with TickerProviderStateMixin {
     // Delayed navigation to LoginScreen after 3 seconds
     Future.delayed(const Duration(seconds: 30), () {
       if (mounted) {
-        Get.off(() => const SignUp());
+        Get.off(() => Signup());
       }
     });
   }
@@ -126,7 +126,7 @@ Widget _buildBotton() {
             children: [
               GestureDetector(
                 onTap: () {
-                  Get.to(() => const SignUp());
+                  Get.to(() => Signup());
                 },
                 child: GlassmorphicContainer(
                     width: 65.w,

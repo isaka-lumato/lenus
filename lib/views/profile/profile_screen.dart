@@ -10,7 +10,7 @@ import 'package:lenus1/utils/app_theme.dart';
 import 'package:lenus1/utils/const.dart';
 import 'package:lenus1/utils/firebase_consts.dart';
 import 'package:lenus1/utils/images.dart';
-import 'package:lenus1/views/auth_screen/signup.dart';
+import 'package:lenus1/views/Authentication/signin.dart';
 import 'package:lenus1/views/messaging/messaging_view.dart';
 import 'package:lenus1/views/profile/profile_edit_screen.dart';
 import 'package:lenus1/views/profile/profile_setting_screen.dart';
@@ -327,7 +327,7 @@ Widget _buildLogOutButton(BuildContext context) {
     onTap: () async {
                                   await Get.put(AuthController())
                                       .signoutMethod(context);
-                                  Get.offAll(() => SignUp());
+                                  Get.offAll(() => Signup());
                                   VxToast.show(context, msg: APPCONST.loggedOut);
                                 },
   );
