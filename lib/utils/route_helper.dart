@@ -30,7 +30,7 @@ class RouteHelper {
     ),
     GetPage(
       name: RouteHelper.getStarted,
-      page: () => GetStarted(),
+      page: () => SignUp(),
       transition: Transition.fadeIn,
     ),
 

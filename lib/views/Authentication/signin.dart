@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -8,7 +9,7 @@ class SignIn extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(6.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
