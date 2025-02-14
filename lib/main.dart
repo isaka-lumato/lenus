@@ -1,15 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth, User;
 import 'package:firebase_core/firebase_core.dart' show Firebase;
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' show WidgetsFlutterBinding, runApp;
-import 'package:get/get_core/src/get_main.dart';
 import 'package:lenus1/controllers/Layout/navigation_bar_model.dart';
 import 'package:lenus1/controllers/auth/auth_controller.dart';
 import 'package:lenus1/controllers/profile/profile_controller.dart';
 import 'package:lenus1/firebase_options.dart';
 import 'package:lenus1/utils/const.dart';
-import 'package:lenus1/views/layouts/layout.dart';
-
 import 'package:lenus1/utils/route_helper.dart';
 
 void main() async {

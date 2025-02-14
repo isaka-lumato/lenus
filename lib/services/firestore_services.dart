@@ -1,15 +1,17 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:lenus1/controllers/messaging/chats_controller.dart';
 import 'package:lenus1/utils/firebase_consts.dart';
 
 //Store Information
-class StoreServices {
+class FirestoreServices {
 //get all users
     static getUser(uid) {
     return firestore.collection(usersCollection).where('id', isEqualTo: uid).snapshots();
   }
 
+
+
   //get all Messages
-  static getStoreMessages(uid) {
+  static getMessages(uid) {
     return firestore
         .collection(chatsCollection)
         .where('toId', isEqualTo: uid)
@@ -17,7 +19,7 @@ class StoreServices {
   }
 
   //get all chats
-  static getStoreChatMessages(docId) {
+  static getChats(docId) {
     return firestore
         .collection(chatsCollection)
         .doc(docId)
@@ -26,19 +28,18 @@ class StoreServices {
         .snapshots();
   }
 
-  //get Store Orders
-  static Stream<QuerySnapshot> getStoreOrders(storeId) {
-    return firestore
-        .collection(ordersCollection)
-        .where('stores', arrayContains: storeId)
-        .snapshots();
+  // Check if chat exists
+ Future<bool> checkChatExists(String uid1, String  uid2) async {
+  String chatID = generateChatId(uid1: uid1, uid2: uid2);
+  var chatDoc = await firestore.collection(chatsCollection).doc(chatID).get();
+  if(chatDoc != null) {
+    return chatDoc.exists;
   }
-
-  //get Store Products
-  static getStoreProducts(uid) {
-    return firestore
-        .collection(productsCollection)
-        .where('vendor_id', isEqualTo: uid)
-        .snapshots();
-  }
+  return false;
 }
+
+}
+
+
+
+

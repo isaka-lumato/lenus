@@ -15,7 +15,7 @@ class AuthController extends GetxController {
   var confirmPasswordController = TextEditingController();
 
   //Login Method
-  Future<UserCredential?> loginMethod({context}) async {
+  Future<UserCredential?> signinMethod({context}) async {
     UserCredential? userCredential;
 
     try {
@@ -35,7 +35,10 @@ class AuthController extends GetxController {
     required String password,
     required String retypePassword,
   }) async {
-    if (name.isEmpty || email.isEmpty || password.isEmpty || retypePassword.isEmpty) {
+    if (name.isEmpty ||
+        email.isEmpty ||
+        password.isEmpty ||
+        retypePassword.isEmpty) {
       // Show an error message if any field is empty
       VxToast.show(context, msg: 'Please fill in all the fields');
       return;
@@ -49,12 +52,13 @@ class AuthController extends GetxController {
 
     try {
       // Create the user account using FirebaseAuth
+      isLoading(true);
       final userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      // Check if the user account was created successfully
+      //  // Check if the user account was created successfully
       if (userCredential.user != null) {
         // Store user data in Firestore
         await storeUserData(
@@ -69,8 +73,8 @@ class AuthController extends GetxController {
         VxToast.show(context, msg: 'Sign up successful');
 
         Get.offAll(() => const Messaging());
-
       }
+      Get.offAll(() => const Messaging());
     } on FirebaseAuthException catch (e) {
       VxToast.show(context, msg: e.message ?? 'Sign up failed');
     } catch (e) {
@@ -96,9 +100,9 @@ class AuthController extends GetxController {
         'password': password,
         'email': email,
         'imageUrl': '',
-        'cart_count' : cartCount,
-        'order_count' : orderCount,
-        'wishlist_count' : wishlistCount,
+        'cart_count': cartCount,
+        'order_count': orderCount,
+        'wishlist_count': wishlistCount,
       });
     } catch (e) {
       // Handle the error here (e.g., show an error message to the user)
@@ -107,10 +111,6 @@ class AuthController extends GetxController {
       }
     }
   }
-
-
-
-
 
 //sign-out method
   signoutMethod(context) async {

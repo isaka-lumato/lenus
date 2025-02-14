@@ -2,11 +2,16 @@
 
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:lenus1/utils/app_theme.dart';
 import 'package:lenus1/views/Authentication/components/my_button.dart';
 import 'package:lenus1/views/Authentication/components/my_textfield.dart';
 import 'package:lenus1/views/Authentication/components/square_tile.dart';
-import 'package:lenus1/views/Authentication/signin.dart';
+import 'package:lenus1/views/Authentication/signup.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class WelcomePage extends StatelessWidget {
   WelcomePage({super.key});
@@ -15,11 +20,8 @@ class WelcomePage extends StatelessWidget {
   final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
-  double _sigmaX = 5; // from 0-10
-  double _sigmaY = 5; // from 0-10
-  double _opacity = 0.2;
-  double _width = 350;
-  double _height = 300;
+  final double _sigmaX = 5; // from 0-10
+  final double _sigmaY = 5; // from 0-10
   final _formKey = GlobalKey<FormState>();
 
   // sign user in method
@@ -30,46 +32,44 @@ class WelcomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
+        child: SizedBox(
+          height: AppConstants.fullHeight(),
           child: Stack(
             alignment: Alignment.center,
             children: [
-              Image.network(
-                'https://anmg-production.anmg.xyz/yaza-co-za_sfja9J2vLAtVaGdUPdH5y7gA',
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
+              Image.asset(
+                "assets/image/bg_auth.jpg",
+                width: AppConstants.fullWidth(),
+                height: AppConstants.fullHeight(),
                 fit: BoxFit.cover,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                  SizedBox(height: AppConstants.fullHeight() * 0.05),
                   IconButton(
                     icon: const Icon(Icons.arrow_back_ios),
                     color: Colors.white,
                     onPressed: () {},
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.18),
+                  SizedBox(height: AppConstants.fullHeight() * 0.18),
                   const Text("Hi !",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 40,
                           fontWeight: FontWeight.bold)),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                  SizedBox(height: AppConstants.fullHeight() * 0.02),
                   ClipRect(
                     child: BackdropFilter(
                       filter:
                           ImageFilter.blur(sigmaX: _sigmaX, sigmaY: _sigmaY),
                       child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
                         decoration: BoxDecoration(
-                            color: Color.fromRGBO(0, 0, 0, 1)
-                                .withOpacity(_opacity),
+                            color: Color.fromRGBO(0, 0, 0, 0.2),
                             borderRadius:
-                                BorderRadius.all(Radius.circular(30))),
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        height: MediaQuery.of(context).size.height * 0.63,
+                                BorderRadius.all(Radius.circular(30.r))),
+                        width: AppConstants.fullWidth() * 0.94,
                         child: Form(
                           key: _formKey,
                           child: Center(
@@ -84,7 +84,7 @@ class WelcomePage extends StatelessWidget {
                                   obscureText: false,
                                 ),
 
-                                const SizedBox(height: 10),
+                                SizedBox(height: 10.h),
 
                                 // sign in button
                                 MyButton(
@@ -93,10 +93,12 @@ class WelcomePage extends StatelessWidget {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => Signup()),
+                                            builder: (context) => SignUp()),
                                       );
                                     } else {
-                                      print('not valid');
+                                      if (kDebugMode) {
+                                        print('not valid');
+                                      }
                                     }
                                   }),
                                 ),
@@ -132,7 +134,7 @@ class WelcomePage extends StatelessWidget {
 
                                 const SizedBox(height: 10),
 
-                                // google + apple sign in buttons
+                                // google + facebook sign in buttons
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Column(
@@ -142,22 +144,15 @@ class WelcomePage extends StatelessWidget {
                                       // facebook button
                                       SquareTile(
                                           imagePath:
-                                              'assets/images/facebook.png',
+                                              'assets/image/facebook.png',
                                           title: "Continue with Facebook"),
                                       SizedBox(height: 10),
 
                                       // google button
                                       SquareTile(
-                                        imagePath: 'assets/images/google.png',
+                                        imagePath: 'assets/image/google.png',
                                         title: "Continue with Google",
                                       ),
-
-                                      SizedBox(height: 10),
-
-                                      // apple button
-                                      SquareTile(
-                                          imagePath: 'assets/images/apple.png',
-                                          title: "Continue with Apple"),
                                     ],
                                   ),
                                 ),
@@ -193,14 +188,12 @@ class WelcomePage extends StatelessWidget {
                                                     255, 71, 233, 133),
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 20),
-                                          ),
+                                          ).onTap(() {
+                                            Get.to(() => SignUp());
+                                          },),
                                         ],
                                       ),
-                                      SizedBox(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.01),
+                                      SizedBox(height: AppConstants.fullHeight() * 0.01),
                                       const Text('Forgot Password?',
                                           style: TextStyle(
                                               color: Color.fromARGB(

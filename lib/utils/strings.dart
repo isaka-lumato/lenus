@@ -24,7 +24,7 @@ class APPCONST {
   static String signUpWith = "Sign Up with";
   static String privacyPolicy = "Privacy Policy";
   static String termAndCond = "Term and Conditions";
-  static String loggedIn = "Logged in Successfully";
+  static String signedIn = "Sign in Successfully";
   static String loggedOut = "Logged out Successfully";
 
 //pop up menu strings

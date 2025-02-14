@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:lenus1/controllers/auth/auth_controller.dart';
+import 'package:lenus1/utils/app_color.dart';
 import 'package:lenus1/utils/app_theme.dart';
+import 'package:lenus1/utils/strings.dart';
 import 'package:lenus1/views/Authentication/components/my_button.dart';
 import 'package:lenus1/views/Authentication/components/my_textfield.dart';
 import 'package:lenus1/views/Authentication/forgetpassword.dart';
-import 'package:lenus1/views/Authentication/signin.dart';
+import 'package:lenus1/views/Authentication/signup.dart';
+import 'package:lenus1/views/layouts/layout.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class SignUp extends StatelessWidget {
+class SignIn extends StatelessWidget {
   final AuthController authController = Get.put(AuthController());
-  SignUp({super.key});
+  SignIn({super.key});
 
   final double _sigmaX = 5; // from 0-10
   final double _sigmaY = 5; // from 0-10
@@ -47,7 +50,7 @@ class SignUp extends StatelessWidget {
                       },
                     ),
                     SizedBox(height: AppConstants.fullHeight() * 0.26),
-                    const Text("Sign Up",
+                    const Text("Sign In",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 40,
@@ -73,17 +76,11 @@ class SignUp extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 Text(
-                                    "Look like you don't have an account. Let's create a new account",
+                                    "Sign in with your data that you have entered during your registration.",
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 20.sp),
                                     textAlign: TextAlign.start),
                                 const SizedBox(height: 30),
-                                MyTextField(
-                                  controller: authController.nameController,
-                                  hintText: 'Name',
-                                  obscureText: false,
-                                ),
-                                SizedBox(height: AppConstants.ph10),
                                 MyTextField(
                                   controller: authController.emailController,
                                   hintText: 'Email',
@@ -91,66 +88,41 @@ class SignUp extends StatelessWidget {
                                 ),
                                 SizedBox(height: AppConstants.ph10),
                                 MyPasswordTextField(
-                                  controller:
-                                      authController.passwordController,
+                                  controller: authController.passwordController,
                                   hintText: 'Password',
                                   obscureText: true,
                                 ),
                                 SizedBox(height: AppConstants.ph10),
-                                MyPasswordTextField(
-                                  controller: authController
-                                      .confirmPasswordController,
-                                  hintText: 'Confirm Password',
-                                  obscureText: true,
-                                ),
-                                const SizedBox(height: 30),
                                 Column(
                                   mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment:
                                       CrossAxisAlignment.stretch,
                                   children: [
-                                    RichText(
-                                      text: const TextSpan(
-                                        text: '',
-                                        children: <TextSpan>[
-                                          TextSpan(
-                                            text:
-                                                'By selecting Agree & Continue below, I agree to our ',
-                                            style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 20),
-                                          ),
-                                          TextSpan(
-                                              text:
-                                                  'Terms of Service and Privacy Policy',
-                                              style: TextStyle(
-                                                  color: Color.fromARGB(
-                                                      255, 71, 233, 133),
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 20)),
-                                        ],
-                                      ),
-                                    ),
                                     const SizedBox(height: 10),
+                                    authController.isLoading.value
+                                        ? CircularProgressIndicator(
+                                          valueColor: AlwaysStoppedAnimation<Color>(AppColor.primaryColor), 
+                                        )
+                                        :
                                     MyButtonAgree(
-                                      text: "Agree and Sign Up",
-                                      onTap: () {
-                                        authController.signupMethod(
-                                          context: context,
-                                          name: authController
-                                              .nameController.text,
-                                          email: authController
-                                              .emailController.text,
-                                          password: authController
-                                              .passwordController.text,
-                                          retypePassword: authController
-                                              .confirmPasswordController.text,
-                                        );
+                                      text: "Sign In",
+                                      onTap: () async {
+                                        await authController
+                                            .signinMethod(context: context)
+                                            .then((value) {
+                                          if (value != null) {
+                                            VxToast.show(context,
+                                                msg: APPCONST.signedIn);
+                                            Get.offAll(
+                                                () => const AppLayouts());
+                                          }else{
+                                            authController.isLoading(false);
+                                          }
+                                        });
                                       },
                                     ),
                                     const SizedBox(height: 10),
-
                                     // not a member? register now
                                     Padding(
                                       padding: const EdgeInsets.all(8.0),
@@ -175,7 +147,7 @@ class SignUp extends StatelessWidget {
                                               ),
                                               const SizedBox(width: 4),
                                               const Text(
-                                                'Sign In',
+                                                'Sign Up',
                                                 style: TextStyle(
                                                     color: Color.fromARGB(
                                                         255, 71, 233, 133),
@@ -183,7 +155,7 @@ class SignUp extends StatelessWidget {
                                                     fontSize: 20),
                                               ).onTap(
                                                 () {
-                                                  Get.to(() => SignIn());
+                                                  Get.to(() => SignUp());
                                                 },
                                               ),
                                             ],

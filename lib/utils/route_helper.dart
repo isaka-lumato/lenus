@@ -1,5 +1,8 @@
 import 'package:get/get.dart';
 import 'package:lenus1/views/Authentication/signin.dart';
+import 'package:lenus1/views/Authentication/signup.dart';
+import 'package:lenus1/views/Authentication/welcome.dart';
+import 'package:lenus1/views/layouts/layout.dart';
 import 'package:lenus1/views/messaging/messaging_view.dart';
 import 'package:lenus1/views/profile/profile_screen.dart';
 
@@ -24,12 +27,12 @@ class RouteHelper {
   static List<GetPage> routes = [
     GetPage(
       name: RouteHelper.initial,
-      page: () => Signup(),
+      page: () => AppLayouts(),
       transition: Transition.fadeIn,
     ),
     GetPage(
       name: RouteHelper.getStarted,
-      page: () => Signup(),
+      page: () => WelcomePage(),
       transition: Transition.fadeIn,
     ),
 
@@ -41,12 +44,12 @@ class RouteHelper {
     ),
     GetPage(
       name: RouteHelper.signin,
-      page: () => Signup(),
+      page: () => SignIn(),
       transition: Transition.fadeIn,
     ),
     GetPage(
       name: RouteHelper.signup,
-      page: () => Signup(),
+      page: () => SignUp(),
       transition: Transition.fadeIn,
     ),
     GetPage(

@@ -1,11 +1,13 @@
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:lenus1/utils/const.dart';
 import 'package:lenus1/views/Authentication/components/my_button.dart';
 import 'package:lenus1/views/Authentication/components/my_textfield.dart';
+import 'package:lenus1/views/Authentication/signin.dart';
+import 'package:lenus1/views/Authentication/signup.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class ForgetPassword extends StatelessWidget {
+  ForgetPassword({super.key});
 
   // text editing controllers
   final passwordController = TextEditingController();
@@ -55,7 +57,7 @@ class LoginPage extends StatelessWidget {
                     },
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height * 0.26),
-                  const Text("Log in",
+                  const Text("Forget Password",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 40,
@@ -129,17 +131,35 @@ class LoginPage extends StatelessWidget {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => LoginPage()));
+                                            builder: (context) => SignIn()));
                                   },
                                 ),
-                                const SizedBox(height: 30),
-                                const Text('Forgot Password?',
-                                    style: TextStyle(
-                                        color:
-                                            Color.fromARGB(255, 71, 233, 133),
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
-                                    textAlign: TextAlign.start),
+                                SizedBox(height: 30.h),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  // ignore: prefer_const_literals_to_create_immutables
+                                  children: [
+                                    Text(
+                                      'Don\'t have an account?',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 20),
+                                      textAlign: TextAlign.start,
+                                    ),
+                                    const SizedBox(width: 4),
+                                    const Text(
+                                      'Sign Up',
+                                      style: TextStyle(
+                                          color:
+                                              Color.fromARGB(255, 71, 233, 133),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20),
+                                    ).onTap(
+                                      () {
+                                        Get.to(() => SignUp());
+                                      },
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
                           ),

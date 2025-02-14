@@ -5,7 +5,7 @@ import 'package:lenus1/component/loading_indicator.dart';
 import 'package:lenus1/component/our_button.dart';
 import 'package:lenus1/controllers/auth/auth_controller.dart';
 import 'package:lenus1/controllers/profile/profile_controller.dart';
-import 'package:lenus1/services/store_services.dart';
+import 'package:lenus1/services/firestore_services.dart';
 import 'package:lenus1/utils/app_theme.dart';
 import 'package:lenus1/utils/const.dart';
 import 'package:lenus1/utils/firebase_consts.dart';
@@ -25,14 +25,14 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return  SafeArea(
+    return SafeArea(
       child: Expanded(
         child: Column(
-            children: [
-              _buildProfileWidget(),
-              _buildSettingList(context),
-            ],
-          ),
+          children: [
+            _buildProfileWidget(),
+            _buildSettingList(context),
+          ],
+        ),
       ),
     );
   }
@@ -81,7 +81,7 @@ Widget _buildProfileWidget() {
 Widget _buildProfileHeader() {
   var controller = Get.find<ProfileController>();
   return FutureBuilder<QuerySnapshot>(
-    future: StoreServices.getUser(currentUser!.uid),
+    future: FirestoreServices.getUser(currentUser!.uid),
     builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
       if (!snapshot.hasData) {
         return Center(child: loadingIndicator());
@@ -170,7 +170,7 @@ Widget _buildStoreInfo(String storeName, String storeEmail) {
 
 Widget _buildSettingList(BuildContext context) {
   return SizedBox(
-    height: AppConstants.fullHeight()*0.7,
+    height: AppConstants.fullHeight() * 0.7,
     child: SingleChildScrollView(
       child: Column(
         children: [
@@ -325,10 +325,9 @@ Widget _buildLogOutButton(BuildContext context) {
     ],
     title: "Log Out",
     onTap: () async {
-                                  await Get.put(AuthController())
-                                      .signoutMethod(context);
-                                  Get.offAll(() => Signup());
-                                  VxToast.show(context, msg: APPCONST.loggedOut);
-                                },
+      await Get.put(AuthController()).signoutMethod(context);
+      Get.offAll(() => SignIn());
+      VxToast.show(context, msg: APPCONST.loggedOut);
+    },
   );
 }
